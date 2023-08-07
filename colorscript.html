@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        display: flex;
+        text-align: center;
+        justify-content:center;
+        margin-top: 350px;
+        background-image: url(rain.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 50% 120%;
+    }
+    button{
+        background-image: linear-gradient(rgb(216, 199, 12),rgb(66, 16, 183));
+        border:3px solid rgb(232, 232, 22);
+        border-radius:50%;
+        width:200px;
+        height:100px;
+        transition: border-radius 0.3s ease;
+    }
+    
+    button:hover {
+        transform: scale(2.05);
+    }
+    
+    button.clicked {
+        border-radius: 10%;
+    }
+
+    h2{
+        font-style: italic;
+        font-weight: 200;
+        color:cyan;
+    }
+</style>
+<body>
+    <button><h2>Click Me!</h2></button>
+</body>
+<script>
+    const button = document.querySelector("button");
+    const body = document.querySelector("body");
+    const color = ['violet', 'indigo', 'blue', 'green', 'yellow', 'orange', 'red'];
+    body.style.backgroundColor = 'pink';
+
+    button.addEventListener('click', function () {
+        const colorIndex = parseInt(Math.random() * color.length);
+        body.style.backgroundColor = color[colorIndex];
+        button.classList.add('clicked'); // Add the 'clicked' class to change the shape
+        setTimeout(() => {
+            button.classList.remove('clicked'); // Remove the 'clicked' class after a delay
+        }, 300); // Adjust the delay (in milliseconds) as needed
+    });
+</script>
+</html>
+
